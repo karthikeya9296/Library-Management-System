@@ -1,0 +1,28 @@
+.App{
+  width: 100vw;
+  height: 180vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;  
+  font-size: larger;  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

@@ -1,0 +1,461 @@
+/* --- Global Settings & Reset --- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+               Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background-color: #ffffff; /* Or your main app background */
+  color: #333; /* Default text color for light backgrounds */
+  line-height: 1.5;
+  overflow-x: hidden !important; /* Keep this if you need it */
+}
+
+/* --- App Layout --- */
+.App {
+  display: flex;
+  flex-direction: row;
+  min-height: 100vh; /* Ensure it takes full viewport height */
+  width: 100vw;
+}
+
+/* --- Sidebar --- */
+.sidebar {
+  width: 280px; /* Fixed width, adjust as needed */
+  flex-shrink: 0; /* Prevent sidebar from shrinking */
+  background-color: #282c34;
+  color: aliceblue;
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* Full viewport height */
+  position: sticky; /* Make sidebar stick on scroll if main content overflows */
+  top: 0;
+}
+
+.dashHeader { /* Library Logo/Title */
+  display: flex;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  height: 60px; /* Fixed height */
+  border-bottom: 1px solid #444; /* Subtle separator */
+  font-size: 1.4rem; /* Larger font */
+  flex-shrink: 0;
+}
+
+.dashHeader svg { /* Style the LibraryBooksIcon */
+    margin-right: 0.75rem;
+}
+
+.head { /* Admin Section Container */
+  padding: 1.5rem 1rem; /* Padding around admin info */
+  text-align: center; /* Center admin items */
+  border-bottom: 1px solid #444; /* Subtle separator */
+  flex-shrink: 0;
+}
+
+.head .admin_items {
+   /* List styling handled by children */
+   list-style: none;
+}
+
+.a_icon svg { /* Admin icon style */
+  font-size: 3rem; /* Make icon larger */
+  margin-bottom: 0.5rem;
+}
+
+.A_title {
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+/* Style for Admin Log Out button - basic example */
+.head button {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    font-size: 0.9rem;
+}
+.head button:hover {
+    background-color: #c82333;
+}
+
+.SidebarList { /* Navigation Links List */
+  list-style-type: none;
+  overflow-y: auto; /* Allow scrolling if many links */
+  flex-grow: 1; /* Take remaining vertical space */
+}
+
+.SidebarList a { /* Style React Router Links */
+    text-decoration: none;
+    color: inherit; /* Inherit color from parent li */
+    display: block; /* Make link fill the row */
+}
+
+.SidebarList .row { /* Each Navigation Item */
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 55px; /* Slightly increased height */
+  padding: 0 1.5rem; /* Horizontal padding */
+  border-bottom: 1px solid #3a3f47; /* Subtle border */
+  transition: background-color 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.SidebarList .row:hover {
+  background-color: darkslateblue;
+}
+
+.SidebarList .row svg { /* Icon styling */
+   margin-right: 1rem;
+   font-size: 1.3rem; /* Adjust icon size */
+}
+
+/* --- Main Body Content Area --- */
+.body-container {
+  flex-grow: 1; /* Take remaining horizontal space */
+  padding: 1.5rem 2rem; /* Padding around main content */
+  height: 100vh; /* Allow content itself to scroll */
+  overflow-y: auto;
+  background-color: #f8f9fa; /* Light background for content */
+}
+
+.body-content {
+    /* This class seems redundant if body-container handles padding/scroll */
+    width: 100%;
+}
+
+/* --- Dashboard Specific --- */
+.col-md-2 { /* Container for Dashboard cards and chart? Rename if possible */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem; /* Space between card row and chart */
+}
+
+.dashbody { /* Row container for cards */
+    display: flex; /* Already set */
+    width: 100%;
+}
+
+.container { /* This holds the three cards */
+  width: 100%;
+  display: flex;
+  justify-content: space-between; /* Space cards evenly */
+  gap: 1.5rem; /* Gap between cards */
+  flex-wrap: wrap; /* Allow cards to wrap on smaller screens */
+}
+
+.card1, .card2, .card3 { /* Dashboard card styling */
+  flex-grow: 1; /* Allow cards to grow */
+  flex-basis: 250px; /* Minimum base width before wrapping */
+  min-height: 180px; /* Slightly smaller height */
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column; /* Stack content and foot */
+  overflow: hidden; /* Keep content within rounded corners */
+  color: #333; /* Darker text for light cards */
+}
+.card1 { background-color: #adecfc; } /* Lighter cyan */
+.card2 { background-color: #fff59b; } /* Lighter yellow */
+.card3 { background-color: #c8ffb8; } /* Lighter green */
+
+.content { /* Card content (number) */
+  flex-grow: 1; /* Take available space */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3.5rem; /* Adjusted font size */
+  font-weight: bold;
+  padding: 1rem;
+}
+
+.foot { /* Card footer (link) */
+  height: 45px; /* Fixed height footer */
+  background-color: #6c757d; /* Grey footer */
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; /* Align link to the right */
+  padding: 0 1rem;
+  font-weight: 500;
+}
+
+.foot a {
+  font-size: 1rem; /* Adjusted font size */
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.foot a:hover {
+  color: #eee;
+  text-decoration: underline;
+}
+
+
+/* --- General Content Section Styling (e.g., User/Book/Record List) --- */
+.user-container { /* Used for lists - needs better name? */
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.dashboard-header { /* Header for list sections */
+  width: 100%;
+  display: flex;
+  justify-content: space-between; /* Align title left, button right */
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #dee2e6; /* Separator */
+  flex-wrap: wrap; /* Allow button to wrap below title on small screens */
+  gap: 1rem; /* Space between title and button if they wrap */
+}
+
+.dashboard-header h1 {
+  font-size: 1.8rem; /* Adjusted size */
+  font-weight: bold;
+  margin: 0; /* Remove default margins */
+}
+
+/* --- Search Component Styling --- */
+.search {
+    margin-bottom: 1.5rem; /* Space below search */
+    display: flex;
+    justify-content: flex-end; /* Position search to the right */
+    width: 100%;
+}
+
+.search-container {
+    position: relative;
+    box-sizing: border-box;
+    width: fit-content;
+}
+
+.mainbox { /* Search input container */
+  box-sizing: border-box;
+  position: relative;
+  width: 250px; /* Increased default width */
+  height: 45px; /* Slightly reduced height */
+  display: flex;
+  align-items: center; /* Vertically center icon and input */
+  border-radius: 25px; /* Pill shape */
+  background-color: #ffffff; /* White background */
+  border: 1px solid #ced4da; /* Subtle border */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  padding: 0 0.5rem 0 0.75rem; /* Padding Left/Right */
+}
+
+.search_input { /* Input field inside search */
+  box-sizing: border-box;
+  flex-grow: 1; /* Take available space */
+  height: 100%;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  font-size: 0.95rem;
+  color: #495057; /* Darker text color */
+  font-family: inherit;
+}
+
+.search_input::placeholder {
+  color: #adb5bd; /* Lighter placeholder */
+}
+
+.iconContainer { /* Search icon */
+  padding-top: 0; /* Remove top padding */
+  margin-left: 0.5rem; /* Space between input and icon */
+}
+
+.search_icon {
+  fill: #6c757d; /* Icon color */
+  font-size: 1.2em; /* Slightly smaller */
+  display: block; /* Prevent extra space below icon */
+}
+
+/* Hiding checkbox based search expand (removed as it adds complexity) */
+/* Remove the .checkbox related styles if not using the check-to-collapse feature */
+.checkbox { display: none; }
+
+/* --- Tables --- */
+.table-dashboard {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  background-color: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border-radius: 0.375rem; /* Rounded corners for table */
+  overflow: hidden; /* Clip content to rounded corners */
+  font-size: 0.9rem; /* Base font size for table */
+}
+
+.table-dashboard th,
+.table-dashboard td {
+  border: 1px solid #e9ecef; /* Lighter borders */
+  padding: 0.75rem 1rem; /* Consistent padding */
+  text-align: left; /* Left-align text by default */
+  vertical-align: middle; /* Center vertically */
+}
+
+.table-dashboard th {
+  background-color: #f8f9fa; /* Very light grey header */
+  font-weight: 600;
+  color: #495057;
+  text-align: center; /* Center align headers */
+}
+
+.table-dashboard td {
+   color: #6c757d;
+}
+.table-dashboard td.action { /* Center align action buttons */
+   text-align: center;
+   white-space: nowrap; /* Prevent buttons wrapping */
+   min-width: 120px; /* Ensure enough space for actions */
+}
+.table-dashboard tr:nth-child(even) {
+    background-color: #f8f9fa; /* Subtle row striping */
+}
+.table-dashboard tr:hover {
+   background-color: #e9ecef; /* Row hover effect */
+}
+
+/* Style buttons/links within table action cells */
+.action > * { /* Apply margin to direct children of .action cell */
+  margin: 0 0.3rem; /* Space out buttons/icons */
+  cursor: pointer;
+  vertical-align: middle; /* Align icons/buttons nicely */
+}
+
+.btn1 svg, .btn2 svg, .btn3 svg { font-size: 1.2rem; } /* Icon size */
+.btn1 { color: #28a745; } /* Green */
+.btn2 { color: #dc3545; } /* Red */
+.btn3 { color: #17a2b8; } /* Blue */
+.btn1:hover { color: #218838; }
+.btn2:hover { color: #c82333; }
+.btn3:hover { color: #138496; }
+
+
+/* --- Add/Edit/View Modal --- */
+
+/* Copied from previous answer, assuming this structure is good */
+.modal-overlay { position: fixed; inset: 0; background-color: rgba(0, 0, 0, 0.6); z-index: 1000;}
+.form-container { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 90%; max-width: 500px; max-height: 90vh; overflow-y: auto; border-radius: 0.75rem; background-color: rgba(17, 24, 39, 1); padding: 1.5rem; color: rgba(243, 244, 246, 1); z-index: 1050; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3); }
+.form-container .title { text-align: center; font-size: 1.5rem; line-height: 2rem; font-weight: 700; margin-bottom: 1.5rem; margin-top: 0;}
+.form-container .form { margin-top: 0; display: flex; flex-direction: column; gap: 1rem; }
+.form-container .input-group, .form-container .dropdown { font-size: 0.875rem; line-height: 1.25rem; text-align: left;} /* MODAL: Left align text inside modal inputs */
+.form-container .input-group label, .form-container .dropdown label { display: block; color: rgba(156, 163, 175, 1); margin-bottom: 0.3rem; font-weight: 500;}
+.form-container .input-group input, .form-container .dropdown select { width: 100%; border-radius: 0.375rem; border: 1px solid rgba(55, 65, 81, 1); outline: 0; background-color: rgba(31, 41, 55, 1); padding: 0.75rem 1rem; color: rgba(243, 244, 246, 1); line-height: 1.25rem; transition: border-color 0.2s ease-in-out; /* text-align: left; */ /* Ensure text typed starts left */ }
+.form-container .dropdown select { appearance: none; cursor: pointer; /* padding-right: 2.5rem; */ /* Adjust if using custom arrow */ }
+.form-container .input-group input:focus, .form-container .dropdown select:focus { border-color: rgba(167, 139, 250, 1); box-shadow: 0 0 0 1px rgba(167, 139, 250, 0.5); }
+.form-container .input-group input:disabled, .form-container .dropdown select:disabled { background-color: rgba(55, 65, 81, 0.5); cursor: not-allowed; color: rgba(156, 163, 175, 0.7); }
+.form-container .sign { display: block; width: auto; min-width: 120px; margin: 1.5rem auto 0 auto; background-color: rgba(167, 139, 250, 1); padding: 0.75rem 1.5rem; color: rgba(17, 24, 39, 1); border: none; border-radius: 0.375rem; font-weight: 600; text-align: center; text-decoration: none; cursor: pointer; transition: background-color 0.2s ease-in-out, transform 0.1s ease; }
+.form-container .sign:hover { background-color: rgba(147, 112, 238, 1); text-decoration: none; transform: translateY(-1px); }
+.form-container .sign:active { transform: translateY(0px); }
+.form-container button[type="button"] { /* Style for a potential close button */
+   margin-top: 15px; cursor: pointer; padding: 8px 15px; background-color: #6c757d; color: white; border: none; border-radius: 4px;
+}
+.form-container button[type="button"]:hover { background-color: #5a6268;}
+
+
+/* --- Pagination Styling (Basic) --- */
+.pagination{
+  display: flex; /* Use flexbox for layout */
+  justify-content: center; /* Center items horizontally */
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin: 2rem 0; /* Add space around pagination */
+}
+.page-item {
+  margin: 0 0.3rem; /* Space between pagination items */
+}
+.page-link {
+  background: #6c757d; /* Grey background */
+  border: 1px solid #6c757d;
+  color: #fff;
+  padding: 0.5rem 0.75rem;
+  cursor: pointer;
+  border-radius: 0.25rem;
+  text-decoration: none;
+  transition: background-color 0.2s, color 0.2s;
+  font-size: 0.9rem;
+}
+.page-link:hover {
+  background: #5a6268;
+  border-color: #5a6268;
+  color: #fff;
+  text-decoration: none;
+}
+.page-item.active .page-link { /* Style for the active page */
+   background-color: #007bff; /* Example primary color */
+   border-color: #007bff;
+   color: white;
+   cursor: default;
+}
+.page-item.disabled .page-link { /* Style for disabled prev/next */
+   background-color: #e9ecef;
+   border-color: #dee2e6;
+   color: #6c757d;
+   cursor: not-allowed;
+}
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 768px) { /* Adjust breakpoint as needed */
+
+  .sidebar {
+      width: 240px; /* Smaller sidebar on smaller screens */
+  }
+  .App {
+      /* Might change to flex-direction: column; if sidebar needs to stack */
+  }
+  .body-container {
+      padding: 1rem 1rem; /* Reduce padding */
+  }
+  .container { /* Dashboard cards */
+      flex-direction: column; /* Stack cards vertically */
+      align-items: center;
+      gap: 1rem;
+  }
+  .card1, .card2, .card3 {
+     width: 90%; /* Make cards take more width when stacked */
+     flex-basis: auto; /* Reset flex-basis */
+     min-height: 160px;
+  }
+  .content { font-size: 3rem; }
+  .foot { height: 40px; }
+  .foot a { font-size: 0.9rem; }
+
+  .dashboard-header {
+      flex-direction: column; /* Stack title and button */
+      align-items: flex-start; /* Align items left */
+  }
+  .dashboard-header h1 { font-size: 1.5rem; }
+
+  .search { justify-content: flex-start; /* Align search left */ }
+
+  .table-dashboard th, .table-dashboard td {
+    padding: 0.5rem 0.75rem; /* Reduce table cell padding */
+  }
+  .table-dashboard { font-size: 0.85rem; }
+  .action { /* May need adjustment for button layout on small screens */ }
+
+  /* --- Modal Adjustments --- */
+  .form-container { /* Modal itself */
+      width: 95%;
+      padding: 1rem;
+      max-height: 85vh;
+  }
+   .form-container .title { font-size: 1.25rem; margin-bottom: 1rem; }
+   .form-container .form { gap: 0.75rem; }
+   .form-container .input-group input, .form-container .dropdown select { padding: 0.6rem 0.8rem; }
+   .form-container .sign { padding: 0.6rem 1.2rem; margin-top: 1rem; }
+
+}

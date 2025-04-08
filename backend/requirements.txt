@@ -1,0 +1,11 @@
+Django>=4.0
+djangorestframework
+djongo
+python-dotenv
+pytz
+mongoengine
+pymongo
+bcrypt
+djangorestframework-simplejwt
+djangorestframework-jwt
+django-cors-headers
