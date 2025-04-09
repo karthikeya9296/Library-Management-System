@@ -31,41 +31,35 @@ class RecordSerializer(serializers.Serializer):
 
 
     # --- Validation Methods ---
-    def validate_user_id(self, value):
-        print(f"--- DEBUG (validate_user_id): Checking existence for user id='{value}' using count_documents ---")
-        try:
-            # Use PyMongo's count_documents directly on the collection object
-            user_collection = User._get_collection()
-            count = user_collection.count_documents({ 'id': value }) # Check custom string 'id' field
-            print(f"--- DEBUG (validate_user_id): count_documents = {count} ---")
-
-            if count > 0:
-                return value # ID exists
-            else:
-                 raise serializers.ValidationError(f"User with ID '{value}' does not exist (count was 0).")
-
-        except Exception as e: # Catch any potential error during count
-            print(f"---! ERROR in validate_user_id during count: {type(e).__name__}: {e} !---")
-            # Re-raise as validation error for DRF
-            raise serializers.ValidationError(f"Error checking user ID '{value}'.")
+def validate_user_id(self, value):
+    print(f"--- DEBUG (validate_user_id): Checking existence for user id='{value}' using _id ---")
+    try:
+        user_collection = User._get_collection()
+        count = user_collection.count_documents({ '_id': value })  # ✅ Use _id instead of 'id'
+        print(f"--- DEBUG (validate_user_id): count_documents = {count} ---")
+        if count > 0:
+            return value
+        else:
+            raise serializers.ValidationError(f"User with ID '{value}' does not exist.")
+    except Exception as e:
+        print(f"---! ERROR in validate_user_id during count: {type(e).__name__}: {e} !---")
+        raise serializers.ValidationError(f"Error checking user ID '{value}'.")
 
 
-    def validate_book_id(self, value):
-        print(f"--- DEBUG (validate_book_id): Checking existence for book id='{value}' using count_documents ---")
-        try:
-            # Use PyMongo's count_documents directly
-            book_collection = Book._get_collection()
-            count = book_collection.count_documents({ 'id': value }) # Check custom string 'id' field
-            print(f"--- DEBUG (validate_book_id): count_documents = {count} ---")
+def validate_book_id(self, value):
+    print(f"--- DEBUG (validate_book_id): Checking existence for book id='{value}' using _id ---")
+    try:
+        book_collection = Book._get_collection()
+        count = book_collection.count_documents({ '_id': value })  # ✅ Use _id instead of 'id'
+        print(f"--- DEBUG (validate_book_id): count_documents = {count} ---")
+        if count > 0:
+            return value
+        else:
+            raise serializers.ValidationError(f"Book with ID '{value}' does not exist.")
+    except Exception as e:
+        print(f"---! ERROR in validate_book_id during count: {type(e).__name__}: {e} !---")
+        raise serializers.ValidationError(f"Error checking book ID '{value}'.")
 
-            if count > 0:
-                return value # ID exists
-            else:
-                 raise serializers.ValidationError(f"Book with ID '{value}' does not exist (count was 0).")
-
-        except Exception as e:
-             print(f"---! ERROR in validate_book_id during count: {type(e).__name__}: {e} !---")
-             raise serializers.ValidationError(f"Error checking book ID '{value}'.")
 
     # --- create/update methods as before ---
     def create(self, validated_data):
