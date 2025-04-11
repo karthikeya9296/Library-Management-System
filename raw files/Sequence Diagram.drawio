@@ -1,0 +1,91 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36" version="26.2.7">
+  <diagram name="Page-1" id="ELPBQ0Wt8KMcmus56LVo">
+    <mxGraphModel dx="788" dy="451" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="lLjmCKt8aYgoU3FdGIGg-1" value="User" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;fontFamily=Times New Roman;fontStyle=1;fontSize=18;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="20" y="20" width="150" height="628" as="geometry" />
+        </mxCell>
+        <mxCell id="lLjmCKt8aYgoU3FdGIGg-2" value="System" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;fontFamily=Times New Roman;fontStyle=1;fontSize=18;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="220" y="20" width="150" height="628" as="geometry" />
+        </mxCell>
+        <mxCell id="lLjmCKt8aYgoU3FdGIGg-3" value="BookDatabase" style="shape=umlLifeline;perimeter=lifelinePerimeter;whiteSpace=wrap;container=1;dropTarget=0;collapsible=0;recursiveResize=0;outlineConnect=0;portConstraint=eastwest;newEdgeStyle={&quot;edgeStyle&quot;:&quot;elbowEdgeStyle&quot;,&quot;elbow&quot;:&quot;vertical&quot;,&quot;curved&quot;:0,&quot;rounded&quot;:0};size=65;fontFamily=Times New Roman;fontStyle=1;fontSize=18;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="422" y="20" width="150" height="628" as="geometry" />
+        </mxCell>
+        <mxCell id="lLjmCKt8aYgoU3FdGIGg-4" value="Login" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;fontFamily=Times New Roman;fontStyle=1;fontSize=18;" edge="1" parent="1" source="lLjmCKt8aYgoU3FdGIGg-1" target="lLjmCKt8aYgoU3FdGIGg-2">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="204" y="127" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lLjmCKt8aYgoU3FdGIGg-5" value="Success/Failure" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;endArrow=block;fontFamily=Times New Roman;fontStyle=1;fontSize=18;" edge="1" parent="1" source="lLjmCKt8aYgoU3FdGIGg-2" target="lLjmCKt8aYgoU3FdGIGg-1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="207" y="179" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lLjmCKt8aYgoU3FdGIGg-6" value="Search Book" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;fontFamily=Times New Roman;fontStyle=1;fontSize=18;" edge="1" parent="1" source="lLjmCKt8aYgoU3FdGIGg-1" target="lLjmCKt8aYgoU3FdGIGg-2">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="204" y="231" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lLjmCKt8aYgoU3FdGIGg-7" value="Query Books" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;fontFamily=Times New Roman;fontStyle=1;fontSize=18;" edge="1" parent="1" source="lLjmCKt8aYgoU3FdGIGg-2" target="lLjmCKt8aYgoU3FdGIGg-3">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="405" y="283" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lLjmCKt8aYgoU3FdGIGg-8" value="Book List" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;endArrow=block;fontFamily=Times New Roman;fontStyle=1;fontSize=18;" edge="1" parent="1" source="lLjmCKt8aYgoU3FdGIGg-3" target="lLjmCKt8aYgoU3FdGIGg-2">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="408" y="335" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lLjmCKt8aYgoU3FdGIGg-9" value="Display Books" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;endArrow=block;fontFamily=Times New Roman;fontStyle=1;fontSize=18;" edge="1" parent="1" source="lLjmCKt8aYgoU3FdGIGg-2" target="lLjmCKt8aYgoU3FdGIGg-1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="207" y="387" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lLjmCKt8aYgoU3FdGIGg-10" value="Borrow Book" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;fontFamily=Times New Roman;fontStyle=1;fontSize=18;" edge="1" parent="1" source="lLjmCKt8aYgoU3FdGIGg-1" target="lLjmCKt8aYgoU3FdGIGg-2">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="204" y="439" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lLjmCKt8aYgoU3FdGIGg-11" value="Update Availability" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;endArrow=block;fontFamily=Times New Roman;fontStyle=1;fontSize=18;" edge="1" parent="1" source="lLjmCKt8aYgoU3FdGIGg-2" target="lLjmCKt8aYgoU3FdGIGg-3">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="405" y="491" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lLjmCKt8aYgoU3FdGIGg-12" value="Confirmation" style="verticalAlign=bottom;edgeStyle=elbowEdgeStyle;elbow=vertical;curved=0;rounded=0;dashed=1;dashPattern=2 3;endArrow=block;fontFamily=Times New Roman;fontStyle=1;fontSize=18;" edge="1" parent="1" source="lLjmCKt8aYgoU3FdGIGg-2" target="lLjmCKt8aYgoU3FdGIGg-1">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="207" y="543" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lLjmCKt8aYgoU3FdGIGg-14" value="User" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;fontSize=17;fontStyle=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="20" y="648" width="150" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="lLjmCKt8aYgoU3FdGIGg-15" value="System&amp;nbsp;" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;fontSize=17;fontStyle=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="220" y="648" width="150" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="lLjmCKt8aYgoU3FdGIGg-16" value="Book database" style="rounded=0;whiteSpace=wrap;html=1;fontFamily=Times New Roman;fontSize=17;fontStyle=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="425" y="648" width="150" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
